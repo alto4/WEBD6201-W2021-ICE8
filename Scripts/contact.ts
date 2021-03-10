@@ -1,8 +1,8 @@
-"use strict";
 // Contact Class
 
-((core)=>{
-  class Contact 
+namespace core
+{
+  export class Contact 
   {
     // Instance Variables
     private m_fullName: string;
@@ -126,8 +126,5 @@
     }
   }
 
-  core.Contact = Contact;
-
-})(core || (core={}));
-
+}
 

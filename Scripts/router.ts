@@ -1,6 +1,6 @@
-(function (core) 
+namespace core
 {
-    class Router 
+    export class Router 
     { 
         // Instance Variables
         private m_activeLink: string;
@@ -87,8 +87,8 @@
             return this.m_routingTable.toString();
         }
     }
-    core.Router = Router;
-})(core || (core = {}));
+
+}
 
 //TODO: need to move the code below into its own file
 let router = new core.Router();
