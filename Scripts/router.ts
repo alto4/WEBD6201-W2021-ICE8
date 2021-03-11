@@ -116,8 +116,6 @@ router.AddTable(["/",
                 
 let route = location.pathname; // alias for location.pathname
 
-console.log(router);
-
 if(router.Find(route) > -1)
 {
     router.ActiveLink = (route == "/") ? "home" : route.substring(1)
