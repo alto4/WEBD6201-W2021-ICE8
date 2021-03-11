@@ -4,6 +4,7 @@ namespace core
     { 
         // Instance Variables
         private m_activeLink: string;
+        private m_linkData: string;
         private m_routingTable: string[];
 
         // constructors
@@ -21,6 +22,16 @@ namespace core
         set ActiveLink(link:string) 
         {
             this.m_activeLink = link;
+        }
+
+        get LinkData():string
+        {
+            return this.m_linkData;
+        }
+
+        set LinkData(data:string)
+        {
+            this.m_linkData = data;
         }
 
         // Public methods
