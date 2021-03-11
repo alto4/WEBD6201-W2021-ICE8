@@ -114,6 +114,7 @@ var core;
                 }
             }
         });
+        loadLink("contact");
     }
     function displayContactList() {
         authGuard();

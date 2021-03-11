@@ -222,6 +222,8 @@ namespace core
             }
           }
         });
+
+        loadLink("contact"); // reload contact page
     }
 
     function displayContactList() :void
