@@ -7,7 +7,7 @@ import express = require("express");
 // Built-in constructor function to set up new express app
 const app = express();
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const HOST = "localhost";
 
 app.use(express.static(path.join(__dirname, "node_modules")));
