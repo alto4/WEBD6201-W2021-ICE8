@@ -14,10 +14,16 @@ app.use(express.static(path.join(__dirname, "node_modules")));
 app.use(express.static(path.join(__dirname, "Client")));
 app.use(express.static(path.join(__dirname, "Views")));
 
-// Routing
+// Default route
 app.get("/", (req, res) => {
   displaySPA(res);
 });
+
+// Wildcard route
+app.get("*", (req, res) => {
+  displaySPA(res);
+});
+
 
 // Start server and listen on specified port
 app.listen(PORT, () => {

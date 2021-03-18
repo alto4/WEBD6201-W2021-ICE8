@@ -221,9 +221,8 @@ namespace core
               localStorage.setItem(key, contact.serialize());
             }
           }
+          loadLink("contact"); // reload contact page
         });
-
-        loadLink("contact"); // reload contact page
     }
 
     function displayContactList() :void
@@ -274,22 +273,21 @@ namespace core
            }
            loadLink("contact-list"); // refresh the page
          });
-
-         $("#addButton").on("click", function() 
+      }
+      $("#addButton").on("click", function() 
          {
           loadLink("edit");
          });
-      }
     }
 
     function displayEdit(): void
     {
       let key = router.LinkData;
-
+      
       let contact = new core.Contact();
 
       // check to ensure that the key is not empty
-      if(key != "")
+      if(key != undefined && key != "")
       {
         // get contact info from localStorage
         contact.deserialize(localStorage.getItem(key));
@@ -302,7 +300,7 @@ namespace core
       else
       {
         // modify the page so that it shows "Add Contact" in the header 
-        $("main>h1").text("Add Contact");
+        $("main>div>h1").text("Add Contact");
         // modify edit button so that it shows "Add" as well as the appropriate icon
         $("#editButton").html(`<i class="fas fa-plus-circle fa-lg"></i> Add`);
       }

@@ -113,8 +113,8 @@ var core;
                     localStorage.setItem(key, contact.serialize());
                 }
             }
+            loadLink("contact");
         });
-        loadLink("contact");
     }
     function displayContactList() {
         authGuard();
@@ -147,22 +147,22 @@ var core;
                 }
                 loadLink("contact-list");
             });
-            $("#addButton").on("click", function () {
-                loadLink("edit");
-            });
         }
+        $("#addButton").on("click", function () {
+            loadLink("edit");
+        });
     }
     function displayEdit() {
         let key = router.LinkData;
         let contact = new core.Contact();
-        if (key != "") {
+        if (key != undefined && key != "") {
             contact.deserialize(localStorage.getItem(key));
             $("#fullName").val(contact.FullName);
             $("#contactNumber").val(contact.ContactNumber);
             $("#emailAddress").val(contact.EmailAddress);
         }
         else {
-            $("main>h1").text("Add Contact");
+            $("main>div>h1").text("Add Contact");
             $("#editButton").html(`<i class="fas fa-plus-circle fa-lg"></i> Add`);
         }
         formValidation();
