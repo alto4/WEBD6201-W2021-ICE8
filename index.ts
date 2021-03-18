@@ -11,16 +11,33 @@ const PORT = 3000;
 const HOST = "localhost";
 
 app.use(express.static(path.join(__dirname, "node_modules")));
+app.use(express.static(path.join(__dirname, "Client")));
+app.use(express.static(path.join(__dirname, "Views")));
 
 // Routing
 app.get("/", (req, res) => {
-  res.status(200).send("Hello World!");
+  displaySPA(res);
 });
 
 // Start server and listen on specified port
 app.listen(PORT, () => {
   console.log(`Server running at http://${HOST}:${PORT}/`);
 });
+
+function displaySPA(res: any): void
+{
+  fs.readFile("index.html", (err, data) => {
+    if (err) {
+      res.writeHead(404);
+      res.end("ERROR. Page Not Found.");
+      return;
+    }
+
+    // Security features built into mime-types
+    res.writeHead(200);
+    res.end(data);
+  });
+}
 
 /*
 fs.readFile(file, function (err, data) {
